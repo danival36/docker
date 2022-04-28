@@ -1,0 +1,18 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+
+# Scripts de suport aplicacions Obneo
+# Robot del Buscador de Neologismes:
+00 03 * * *     root    cd /var/www/obneo/buscaneo/robot/; ./BuscaNeo.pl > /var/www/obneo/logs/BuscaNeo.log 2>&1
+# Actualització neologismes més freqüents:
+30 3 * * *      root    cd /var/www/obneo/bneorom; php -f migracion.php > /var/www/obneo/logs/BNerom_migracion.log 2>&1
+# Actualització diccionaris OBNEO:
+30 3 15 * *     root    cd /var/www/obneo/gesdic; php -f diccionariosObneo.php > /var/www/obneo/logs/GesDic_diccionariosObneo.log 2>&1
+# Generació llistats d'impressió de la Plataforma ObNeo:
+0 0,2,4,6,8,10,12,14,16,18,20,22 * * *  root     /var/www/obneo/pobneo/impr_generador.sh > /var/www/obneo/logs/PObNeo_impr_generador.log 2>&1
+# Manteniment anual dels anàlisis del robot del Buscador de Neologismes: 
+30 3 15 7 *     root    cd /var/www/obneo/buscaneo/robot/; perl -dump ./borrado_analisis.pl > /var/www/obneo/logs/BuscaNeo_borrado_analisis.log 2>&1 
+                                                                
+19 * * * * root /root/time.sh
+* * * * * root echo hola > /root/dani_test.txt        
