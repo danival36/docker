@@ -1,0 +1,6 @@
+FUNCTIONS
+
+
+*** Home ***
+
+- This function only renders the “home” html.

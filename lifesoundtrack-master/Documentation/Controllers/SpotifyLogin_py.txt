@@ -1,0 +1,8 @@
+FUNCTIONS
+
+
+*** SpotifyLogin ***
+
+- This function is called when the user clicks the “Spotify login” link from the footer of the “home” page.
+
+- It tries to generate Spotify’s OAuth access token with the constants defined in the project and to catch this token. If it can be caught, the user is redirected to the authorize url. Otherwise, it starts an Spotify session and redirects the user to the life soundtrack generation form.

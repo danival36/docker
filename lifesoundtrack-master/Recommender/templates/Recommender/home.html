@@ -1,0 +1,80 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118272516-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-118272516-1');
+</script>
+
+{% include 'Recommender/elements/header.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+<div class="container">
+    <div class="row">
+        <div class="well bs-component col-xs-6 col-xs-offset-3 margin-20-top">
+            <p align="justify">
+                <b>Banda Sonora Vital</b>
+                {% trans 'project_description' %}
+            </p>
+            <p align="justify">
+                {% trans 'rne_link_1' %}
+                <a href="http://www.rtve.es/alacarta/audios/longitud-de-onda/longitud-onda-banda-sonora-vital-22-05-18/4609885/"
+                   target="_blank">{% trans 'rne_link_2' %}</a>
+                {% trans 'rne_link_3' %}
+            </p>
+            <form id="signup" class="form-horizontal" action="{% url 'Recommender:signup'%}" method="post">
+            {% csrf_token %}
+                <p align="right">
+                    {% trans 'register' %}:
+                </p>
+                <p align="right">
+                    <button class="btn btn-primary btn-sm" type="submit">
+                        {% trans 'register_button' %}
+                    </button>
+                </p>
+            </form>
+            <form id="login" class="form-horizontal" action="{% url 'Recommender:login'%}" method="post">
+            {% csrf_token %}
+                <p align="right">
+                    {% trans 'access' %}:
+                </p>
+                <p align="right">
+                    <button class="btn btn-primary btn-sm" type="submit">
+                        {% trans 'access_button' %}
+                    </button>
+                </p>
+            </form>
+            <br>
+            <p align="justify">
+                {% trans 'help_1' %}
+                {% get_current_language as LANGUAGE_CODE %}
+                {% if LANGUAGE_CODE == 'ca' %}
+                    <b>
+                        <a href="{% static 'Recommender/files/Manual_BandaSonoraVital_CAT.pdf' %}"
+                          target="_blank">aquí</a>
+                    </b>
+                {% else %}
+                    <b>
+                        <a href="{% static 'Recommender/files/Manual_BandaSonoraVital_ES.pdf' %}"
+                          target="_blank">aquí</a>
+                    </b>
+                {% endif %}
+                {% trans 'help_2' %}
+                <b>
+                    <a href="https://www.youtube.com/watch?v=j_2Hgs_jEQ0&list=PLC7pQKBUniZvS6lCKR1JncdEPpCMYkD8J"
+                       target="_blank">{% trans 'help_3' %}</a>
+                </b>
+                <br><br>
+                {% trans 'switch_language' %}
+                <b>
+                    <a href="{% url 'Recommender:switch_language'%}">{% trans 'switch_language_link' %}</a>
+                </b>
+            </p>
+         </div>
+    </div>
+</div>
+
+{% include 'Recommender/elements/footer.html' %}

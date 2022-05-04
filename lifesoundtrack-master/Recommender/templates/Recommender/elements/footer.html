@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<center>
+    <tr>
+        <th><a href="mailto:bandasonoravital@upf.edu">bandasonoravital@upf.edu </a></th>
+    </tr>
+    <br><br>
+    <table>
+
+        <tr>
+            <th>
+                <center><a href="http:/mtg.upf.edu" target="_blank"></a><img src="{% static 'Recommender/images/MTG_logo.png' %}" height="80"></center>
+            </th>
+        </tr>
+    </table>
+</center>
+
+
+<!--
+<div class="metanav">
+    {% if not request.session.spotify_token %}
+        <a href="{% url 'Recommender:spotify_login' %}">spotify log in</a>
+    {% else %}
+        <a href="#">logged in</a>
+    {% endif %}
+</div>
+-->

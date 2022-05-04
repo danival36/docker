@@ -1,0 +1,7 @@
+{% load i18n %}
+
+{% autoescape off %}
+Hola {{ user.username }},
+{% trans 'user_confirmation_email' %}
+http://{{ domain }}{% url 'Recommender:user_activation' uidb64=uid token=token %}
+{% endautoescape %}

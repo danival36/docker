@@ -1,0 +1,16 @@
+setuptools==44.0.0
+Django==1.11.28
+MySQL-python
+django-bootstrap-themes
+virtualenv
+wsgiref
+pyechonest
+geopy
+musicbrainzngs
+spotipy
+mutagen
+geolocator
+ipdb
+google-api-python-client
+requests
+unidecode

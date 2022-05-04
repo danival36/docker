@@ -1,0 +1,728 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 17:50+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# Global
+msgid "email"
+msgstr "Correo Electrónico"
+
+msgid "password"
+msgstr "Contraseña"
+
+msgid "password_confirmation"
+msgstr "Contraseña (confirmación)"
+
+msgid "send"
+msgstr "ENVÍA"
+
+msgid "send_verb"
+msgstr "ENVIAR"
+
+msgid "thanks"
+msgstr "¡Gracias!"
+
+
+#: Recommender/templates/Recommender/home.html
+msgid "project_description"
+msgstr "es un proyecto de investigación sobre música y memoria. Desarrollamos una tecnología de recomendación musical que permite recuperar la banda sonora de tu vida. Esta tecnología está creada para personas mayores nacidas en España. La web está en periodo de pruebas."
+
+msgid "rne_link_1"
+msgstr "Para más información, puede escuchar el programa de "
+
+msgid "rne_link_2"
+msgstr "Longitud de Onda (Radio Clásica)"
+
+msgid "rne_link_3"
+msgstr " dedicado a Banda Sonora Vital."
+
+msgid "register"
+msgstr "Regístrese para crear su Banda Sonora Vital"
+
+msgid "register_button"
+msgstr "REGISTRARSE"
+
+msgid "access"
+msgstr "Acceda a su cuenta de Banda Sonora Vital"
+
+msgid "access_button"
+msgstr "ACCEDER"
+
+msgid "help_1"
+msgstr "Si tiene dudas respecto a cómo utilizar esta web hemos hecho un manual en PDF que puede descargar "
+
+msgid "help_2"
+msgstr " o también puede consultar nuestros "
+
+msgid "help_3"
+msgstr "tutoriales en vídeo."
+
+msgid "switch_language"
+msgstr "També pot utilitzar "
+
+msgid "switch_language_link"
+msgstr "Banda Sonora Vital en català."
+
+
+#: Recommender/templates/Recommender/bsv_signup.html
+msgid "signup"
+msgstr "Registro"
+
+
+#: Recommender/templates/Recommender/bsv_login.html
+msgid "login"
+msgstr "Acceso"
+
+msgid "forgot_password"
+msgstr "¿Ha olvidado su contraseña?"
+
+
+#: Recommender/templates/Recommender/bsv_login_error.html
+msgid "login_error_msg"
+msgstr "¡Uy! No hemos podido encontrar nada con esta combinación de correo electrónico y contraseña. Por favor vuelva a la "
+
+msgid "access_page_link"
+msgstr "página de acceso"
+
+
+#: Recommender/templates/Recommender/data_entry.html
+msgid "welcome_msg"
+msgstr "¡Bienvenido!"
+
+msgid "quest_info_1"
+msgstr "Con la información que usted nos pueda proporcionar crearemos la banda sonora vital de una persona. No pasa nada si hay preguntas que no las puede o no las sabe contestar. Tampoco pasa nada si las respuestas que escribe están incompletas. Muchas preguntas se pueden dejar en blanco."
+
+msgid "quest_info_2"
+msgstr "Cuando le preguntemos por títulos de canciones y artistas que las interpretan es muy habitual que solo recuerde una de las dos cosas. ¡Ningún problema! Indique lo que pueda y no se preocupe por tener que dejar algo en blanco, aunque cuanta más información nos suministre más y mejores resultados podremos obtener."
+
+msgid "quest_help"
+msgstr "Si tiene dudas sobre cómo rellenar el cuestionario recuerde que puede utilizar nuestro"
+
+msgid "go_to_profile_txt"
+msgstr "También puede volver a la vista general de este perfil:"
+
+msgid "go_to_profile_menu_txt"
+msgstr "O volver al menú de perfiles:"
+
+msgid "go_to_profile_menu"
+msgstr "VOLVER AL MENÚ DE PERFILES"
+
+msgid "personal_data"
+msgstr "Datos Personales"
+
+msgid "name"
+msgstr "Nombre"
+
+msgid "name_placeholder"
+msgstr "Puede introducir su nombre y apellidos o solamente su nombre"
+
+msgid "birth_year"
+msgstr "Año de nacimiento"
+
+msgid "birth_place"
+msgstr "Lugar de nacimiento"
+
+msgid "places_lived"
+msgstr "¿En qué provincias ha vivido durante su vida?"
+
+msgid "places_lived_first"
+msgstr "Primer año"
+
+msgid "places_lived_last"
+msgstr "Último año"
+
+msgid "places_lived_placeholder_1"
+msgstr "ejemplo: Vizcaya"
+
+msgid "places_lived_placeholder_2"
+msgstr "ejemplo: Barcelona"
+
+msgid "relation_music"
+msgstr "Relación con la música"
+
+msgid "worked_at"
+msgstr "¿Cuál ha sido su lugar de trabajo?"
+
+msgid "worked_at_other"
+msgstr "¿En qué otro lugar ha trabajado?"
+
+msgid "music_at_work"
+msgstr "Cuando trabajaba, ¿cantaba o se escuchaba música?"
+
+msgid "music_at_work_1"
+msgstr "Cantaba"
+
+msgid "music_at_work_2"
+msgstr "Se escuchaba música"
+
+msgid "music_at_work_3"
+msgstr "Se escuchaba música y cantaba"
+
+msgid "music_at_work_4"
+msgstr "No había música"
+
+msgid "play_instrument"
+msgstr "¿Toca o ha tocado algún instrumento?"
+
+msgid "play_instrument_other"
+msgstr "¿Qué instrumento?"
+
+msgid "like_singing"
+msgstr "¿A lo largo de su vida le ha gustado cantar?"
+
+msgid "like_singing_1"
+msgstr "Me gusta mucho"
+
+msgid "like_singing_2"
+msgstr "Me gusta bastante"
+
+msgid "like_singing_3"
+msgstr "No me gusta mucho"
+
+msgid "like_singing_4"
+msgstr "No me gusta nada"
+
+msgid "group_singing"
+msgstr "¿Ha cantado alguna vez en una coral o en un conjunto?"
+
+msgid "like_dancing"
+msgstr "¿A lo largo de su vida le ha gustado bailar?"
+
+msgid "like_dancing_1"
+msgstr "Me gusta mucho"
+
+msgid "like_dancing_2"
+msgstr "Me gusta bastante"
+
+msgid "like_dancing_3"
+msgstr "Me gusta un poco"
+
+msgid "like_dancing_4"
+msgstr "No me gusta mucho"
+
+msgid "like_dancing_5"
+msgstr "No me gusta nada"
+
+msgid "preferred_genres"
+msgstr "¿Le gusta especialmente algún tipo de música?"
+
+msgid "genre_block_1"
+msgstr "GENERAL"
+
+msgid "genre_block_2"
+msgstr "POPULAR"
+
+msgid "genre_block_3"
+msgstr "CLÁSICA"
+
+msgid "preferred_songs"
+msgstr "¿Cuáles son sus canciones preferidas?"
+
+msgid "preferred_artists"
+msgstr "¿Qué artistas, cantantes o grupos le gustan?"
+
+msgid "memories_music"
+msgstr "Recuerdos y música"
+
+msgid "sing_instrumental"
+msgstr "¿Prefiere música con letra que pueda cantar o música instrumental?"
+
+msgid "sing_instrumental_1"
+msgstr "Música con letra que pueda cantar"
+
+msgid "sing_instrumental_2"
+msgstr "Música instrumental"
+
+msgid "sing_instrumental_3"
+msgstr "Las dos por igual"
+
+msgid "sing_instrumental_4"
+msgstr "Ninguna de las dos"
+
+msgid "upbeat_calm"
+msgstr "Cuando escucha música, ¿prefiere música movida o música calmada?"
+
+msgid "upbeat_calm_1"
+msgstr "Música movida"
+
+msgid "upbeat_calm_2"
+msgstr "Música calmada"
+
+msgid "upbeat_calm_3"
+msgstr "Las dos por igual"
+
+msgid "upbeat_calm_4"
+msgstr "Ninguna de las dos"
+
+msgid "cheerful_melancholic"
+msgstr "Cuando escucha música, ¿prefiere música alegre o más bien melancólica o triste?"
+
+msgid "cheerful_melancholic_1"
+msgstr "Música alegre"
+
+msgid "cheerful_melancholic_2"
+msgstr "Música melancólica"
+
+msgid "cheerful_melancholic_3"
+msgstr "Las dos por igual"
+
+msgid "cheerful_melancholic_4"
+msgstr "Ninguna de las dos"
+
+msgid "listen_instrument"
+msgstr "Cuando escucha música, ¿le gusta algún instrumento en concreto?"
+
+msgid "listen_language"
+msgstr "Cuando escucha música, ¿prefiere música en algún idioma en concreto?"
+
+msgid "listen_language_other"
+msgstr "¿Qué otro idioma?"
+
+msgid "childhood"
+msgstr "¿Recuerda música de su infancia?"
+
+msgid "childhood_songs"
+msgstr "¿Qué música recuerda? (canciones que cantase su madre, sus hermanos, en la escuela...)"
+
+msgid "youth_dance"
+msgstr "¿Iba a bailar cuando era joven?"
+
+msgid "youth_dance_1"
+msgstr "Sí, iba a menudo"
+
+msgid "youth_dance_2"
+msgstr "Sí, alguna vez"
+
+msgid "youth_dance_3"
+msgstr "Nunca"
+
+msgid "youth_dance_songs"
+msgstr "¿Recuerda música de los bailes?"
+
+msgid "radio"
+msgstr "¿Recuerda haber escuchado música en la radio en su infancia o adolescencia?"
+
+msgid "radio_programmes"
+msgstr "¿Qué le gustaba escuchar en la radio en su infancia o adolescencia?"
+
+msgid "tv"
+msgstr "¿Recuerda haber visto programas de música en la televisión en su infancia o adolescencia?"
+
+msgid "tv_programmes"
+msgstr "¿Qué programas musicales le gustaba ver en la televisión en su infancia o adolescencia?"
+
+msgid "wedding_songs"
+msgstr "En caso de haberse casado, ¿recuerda qué música sonó o bailó en su boda?"
+
+msgid "good_memories"
+msgstr "¿Hay alguna canción que le traiga buenos recuerdos?"
+
+msgid "memories_songs"
+msgstr "¿Qué canción?"
+
+msgid "bad_memories"
+msgstr "¿Hay alguna canción que no le guste nada?"
+
+msgid "playlist_length"
+msgstr "¿Cuántas canciones desea escuchar?"
+
+msgid "other"
+msgstr "Otro"
+
+msgid "none"
+msgstr "Ninguno"
+
+msgid "lot"
+msgstr "Mucho"
+
+msgid "little"
+msgstr "Poco"
+
+msgid "nothing"
+msgstr "Nada"
+
+msgid "yes"
+msgstr "Sí"
+
+msgid "no"
+msgstr "No"
+
+msgid "choose_option"
+msgstr "Escoja una opción..."
+
+msgid "choose_one_or_more"
+msgstr "(Puede escoger uno, más de uno o ninguno)"
+
+msgid "song_list_msg_1"
+msgstr "(Una canción con título y artista por cada línea, "
+
+msgid "song_list_msg_2"
+msgstr "puede poner hasta 10 canciones)"
+
+msgid "artist_list_msg_1"
+msgstr "(Un artista por cada línea, "
+
+msgid "artist_list_msg_2"
+msgstr "puede poner hasta 10 artistas)"
+
+msgid "title"
+msgstr "Título"
+
+msgid "artist"
+msgstr "Artista o Grupo"
+
+
+#: Recommender/templates/Recommender/playlist.html
+msgid "playlist_title"
+msgstr "Banda Sonora Vital de"
+
+msgid "playlist_help_1"
+msgstr "Ahora que usted tiene su banda sonora vital, nos gustaría que indicase si reconoce las canciones, si le gustan, si le traen buenos recuerdos o si le gustaría escucharlas de nuevo."
+
+msgid "playlist_help_2"
+msgstr "Puede escuchar la lista completa siguiendo este"
+
+msgid "playlist_help_3"
+msgstr " enlace de Spotify "
+
+msgid "playlist_help_4"
+msgstr "o bien escucharla por Youtube en esta misma página."
+
+msgid "playlist_help_5"
+msgstr "Puede que aunque no reconozca las canciones le gusten. Puede que aunque le gusten no le traigan ningún recuerdo. ¡Todas las combinaciones son posibles e igualmente buenas! No se olvide de proporcionarnos esta información para cada música que le hemos propuesto."
+
+msgid "playlist_help_6"
+msgstr "Si desea completar las respuestas de evaluación en otro momento puede acceder a"
+
+msgid "playlist_help_7"
+msgstr "con su correo electrónico"
+
+msgid "playlist_help_8"
+msgstr "y su contraseña y podrá acceder a esta lista de reproducción."
+
+msgid "modify_msg"
+msgstr "Si lo desea puede modificar sus datos"
+
+msgid "modify"
+msgstr "Modificar"
+
+msgid "feedback_familiar"
+msgstr "¿Le resulta familiar esta música?"
+
+msgid "feedback_like"
+msgstr "¿Le gusta esta música?"
+
+msgid "feedback_listen_again"
+msgstr "¿Le gustaría escucharla de nuevo?"
+
+msgid "feedback_memories"
+msgstr "¿Esta música le trae recuerdos?"
+
+msgid "feedback_text"
+msgstr "¿Qué recuerdos le trae?"
+
+msgid "playlist_feedback_text"
+msgstr "¿Le gustaría enviarnos algún comentario sobre su experiencia con Banda Sonora Vital?"
+
+msgid "playlist_feedback_text_sent"
+msgstr "Su comentario ha sido enviado, ¡gracias!"
+
+msgid "spotify_link"
+msgstr "Enlace para escuchar la lista en Spotify"
+
+
+#: Recommender/templates/Recommender/forgot_password.html
+msgid "forgot_password_msg"
+msgstr "Por favor, introduzca su correo electrónico y le enviaremos un enlace para introducir una contraseña nueva."
+
+msgid "forgot_password_email"
+msgstr "Por favor haga clic en el siguiente enlace para crear una nueva contraseña: "
+
+msgid "forgot_password_sent_1"
+msgstr "Hemos enviado un correo electrónico a"
+
+msgid "forgot_password_sent_2"
+msgstr "Por favor, abra el mensaje y siga las instrucciones para introducir una contraseña nueva para Banda Sonora Vital, ¡gracias!"
+
+
+#: Recommender/templates/Recommender/reset_password.html
+msgid "reset_password"
+msgstr "Introduzca su nueva contraseña"
+
+msgid "new_password"
+msgstr "Nueva contraseña"
+
+msgid "new_password_confirmation"
+msgstr "Nueva contraseña (confirmación)"
+
+
+#: Recommender/templates/Recommender/reset_password_done.html
+msgid "reset_password_done_1"
+msgstr "Su contraseña ha sido cambiada correctamente, ¡gracias!"
+
+msgid "reset_password_done_2"
+msgstr "Ahora puede "
+
+msgid "reset_password_done_3"
+msgstr "acceder a su cuenta."
+
+
+#: Recommender/templates/Recommender/playlist_request.html
+msgid "playlist_request_1"
+msgstr "BIENVENIDO,"
+
+msgid "playlist_request_2"
+msgstr "Estamos procesando sus datos..."
+
+msgid "playlist_request_3"
+msgstr "GRACIAS"
+
+msgid "playlist_request_4"
+msgstr "Estamos procesando sus datos, no tardaremos mucho en tener su lista de reproducción."
+
+
+#: Recommender/templates/Recommender/user_confirmation.html
+msgid "user_confirmation_1"
+msgstr "Hemos enviado un correo electrónico de confirmación a"
+
+msgid "user_confirmation_2"
+msgstr "Por favor, abra el mensaje y siga las instrucciones para activar su cuenta de usuario de Banda Sonora Vital, ¡gracias!"
+
+msgid "user_confirmation_email"
+msgstr "Por favor haga clic en el siguiente enlace para confirmar la creación de su cuenta de Banda Sonora Vital: "
+
+
+#: Recommender/templates/Recommender/profile_manager_menu.html
+msgid "profiles"
+msgstr "Perfiles"
+
+msgid "of"
+msgstr "de"
+
+msgid "profile_manager_menu_txt"
+msgstr "Esta es la página de sus perfiles, puede abrir un perfil nuevo o ir a un perfil existente para editar o consultar datos y música. Aquí le mostramos los perfiles que gestiona actualmente "
+
+msgid "no_profiles_yet"
+msgstr "Todavía no gestiona ningún perfil"
+
+msgid "create_profile"
+msgstr "CREAR NUEVO PERFIL"
+
+msgid "go_to_profile"
+msgstr "IR AL PERFIL"
+
+
+#: Recommender/templates/Recommender/profile_create.html
+msgid "profile_create_1"
+msgstr "Crear un nuevo perfil"
+
+msgid "profile_create_2"
+msgstr "CREAR"
+
+msgid "profile_create_3"
+msgstr "CANCELAR"
+
+msgid "profile_language"
+msgstr "Idioma"
+
+msgid "catalan_language"
+msgstr "Catalán"
+
+msgid "spanish_language"
+msgstr "Castellano"
+
+
+#: Recommender/templates/Recommender/profile.html
+msgid "profile_places_lived"
+msgstr "Lugares donde ha vivido"
+
+msgid "sent_form"
+msgstr "Cuestionario enviado (día y hora)"
+
+msgid "questionnaire"
+msgstr "Cuestionario"
+
+msgid "questionnaire_empty_txt"
+msgstr "El cuestionario de este perfil está vacío."
+
+msgid "questionnaire_fill_in_txt"
+msgstr "Para rellenarlo pulse el siguiente botón."
+
+msgid "questionnaire_fill_in_btn"
+msgstr "RELLENAR CUESTIONARIO"
+
+msgid "questionaire_filled_txt"
+msgstr "El cuestionario de este perfil ha sido rellenado."
+
+msgid "questionnaire_modify_txt"
+msgstr "Para modificarlo o incluir más datos pulse el siguiente botón."
+
+msgid "questionnaire_modify_btn"
+msgstr "MODIFICAR CUESTIONARIO"
+
+msgid "questionnaire_current_data"
+msgstr "Estos son los datos actuales de este perfil:"
+
+msgid "profile_worked_at"
+msgstr "Lugares de trabajo"
+
+msgid "profile_music_at_work"
+msgstr "Música en el trabajo"
+
+msgid "profile_play_instruments"
+msgstr "Toca instrumentos"
+
+msgid "profile_like_singing"
+msgstr "Le gusta cantar"
+
+msgid "profile_group_singing"
+msgstr "Ha cantado en un conjunto"
+
+msgid "profile_like_dancing"
+msgstr "Le gusta bailar"
+
+msgid "profile_genres"
+msgstr "Géneros preferidos"
+
+msgid "profile_songs"
+msgstr "Canciones preferidas"
+
+msgid "profile_artists"
+msgstr "Artistas preferidos"
+
+msgid "profile_sing_instrumental"
+msgstr "Prefiere música para cantar o instrumental"
+
+msgid "profile_upbeat_calm"
+msgstr "Prefiere música movida o calmada"
+
+msgid "profile_cheerful_melancholic"
+msgstr "Prefiere música alegre o melancólica"
+
+msgid "profile_listen_instruments"
+msgstr "Instrumentos que le gusta escuchar"
+
+msgid "profile_listen_languages"
+msgstr "Idiomas preferidos para la música"
+
+msgid "profile_childhood"
+msgstr "Recuerda música de la infancia"
+
+msgid "profile_childhood_songs"
+msgstr "Canciones que recuerda de la infancia"
+
+msgid "profile_youth_dance"
+msgstr "Recuerda música de los bailes de juventud"
+
+msgid "profile_youth_dance_songs"
+msgstr "Canciones que recuerda de los bailes"
+
+msgid "profile_radio"
+msgstr "Recuerda escuchar la radio cuando era joven"
+
+msgid "profile_radio_programmes"
+msgstr "Programas de radio que recuerda escuchar"
+
+msgid "profile_tv"
+msgstr "Recuerda ver la televisión cuando era joven"
+
+msgid "profile_tv_programmes"
+msgstr "Programas de televisión que recuerda escuchar"
+
+msgid "profile_wedding_songs"
+msgstr "Canciones en su boda"
+
+msgid "profile_good_memories"
+msgstr "Alguna canción le trae buenos recuerdos"
+
+msgid "profile_good_memories_songs"
+msgstr "Canciones que le traen buenos recuerdos"
+
+msgid "profile_bad_memories"
+msgstr "Alguna canción le trae recuerdos desagradables"
+
+msgid "profile_bad_memories_songs"
+msgstr "Canción que le trae recuerdos desagradables"
+
+msgid "profile_playlist"
+msgstr "Lista de canciones"
+
+msgid "profile_playlist_fill_in_txt"
+msgstr "Introduzca los datos de este perfil en el cuestionario (opción arriba) para poder generar su lista de canciones."
+
+msgid "playlist_generate_txt"
+msgstr "Pulse el siguiente botón para generar su lista de canciones e ir a escucharla."
+
+msgid "playlist_generate_btn"
+msgstr "GENERAR E IR A LISTA DE CANCIONES"
+
+msgid "playlist_go_txt"
+msgstr "Pulse el siguiente botón para ir a su lista de canciones."
+
+msgid "playlist_go_btn"
+msgstr "IR A LISTA DE CANCIONES"
+
+msgid "playlist_add_txt"
+msgstr "Si ha modificado los datos en el cuestionario, puede volver a generar su lista de canciones teniendo en cuenta los nuevos datos introducidos."
+
+msgid "playlist_add_btn"
+msgstr "AÑADIR DATOS A LISTA DE CANCIONES"
+
+msgid "playlist_current"
+msgstr "Esta es la lista de canciones actual de este perfil:"
+
+msgid "playlist_current_length"
+msgstr "Número de canciones"
+
+msgid "profile_playlist_url"
+msgstr "Enlace para escuchar la lista (Spotify)"
+
+msgid "profile_playlist_feedback_text"
+msgstr "Opinión general sobre su lista"
+
+msgid "profile_playlist_group"
+msgstr "Grupo"
+
+msgid "profile_other_options"
+msgstr "Otras opciones"
+
+msgid "profile_delete_txt"
+msgstr "Puede eliminar este perfil utilizando el siguiente botón."
+
+msgid "profile_delete_btn"
+msgstr "ELIMINAR PERFIL"
+
+msgid "profile_go_profiles_txt"
+msgstr "Puede volver a la vista de menú de perfiles utilizando el siguiente botón."
+
+msgid "profile_go_profiles_btn"
+msgstr "VOLVER A PERFILES"
+
+msgid "see_option"
+msgstr "VER"
+
+
+#: Recommender/templates/Recommender/oops.html
+msgid "oops_msg_1"
+msgstr "¡Uy! Algo ha salido mal, por favor vuelva a "
+
+msgid "oops_msg_2"
+msgstr "acceder a su cuenta."
+
+
+#: Recommender/templates/Recommender/404.html
+msgid "404_msg"
+msgstr "¡Uy! No hemos podido encontrar esta página, por favor vuelva a la página de inicio de"
+
+#: Recommender/templates/Recommender/500.html
+msgid "500_msg"
+msgstr "¡Uy! No hemos podido realizar su petición, por favor vuelva a la página de inicio de"

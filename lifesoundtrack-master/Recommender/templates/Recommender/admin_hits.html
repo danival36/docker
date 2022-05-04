@@ -1,0 +1,106 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118272516-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-118272516-1');
+</script>
+
+{% include 'Recommender/elements/header.html' %}
+{% load staticfiles %}
+
+    <div class="container">
+        <div class="row">
+            <div class="well bs-component col-xs-6 col-xs-offset-3 margin-20-top">
+                    <fieldset>
+                        <legend class="col-xs-12 control-label text-align-center">Hits Database</legend>
+
+                        <form id="downloadHitsDB" class="form-horizontal" action="{% url 'Recommender:track_search'%}" method="post">
+                            {% csrf_token %}
+                            <label class="col-xs-12 control-label text-align-left">Buscar Hits</label>
+                            <p class="col-xs-12 control-label text-align-left">
+                                Introduce título y artista y se hace una búsqueda en Spotify. A partir de los
+                                resultados que se muestren puedes elegir añadir esa canción a Hits.
+                            </p>
+                            <div class="col-xs-12">
+                                <input class="form-control" id="pageId" name="pageId" value="admin_hits" type="hidden">
+                            </div>
+                            <p class="col-xs-12 control-label text-align-right">
+                                <button class="btn btn-primary btn-sm" type="submit">BUSCAR HITS</button>
+                            </p>
+                            <p class="col-xs-12 control-label text-align-right"></p>
+                        </form>
+
+                        <form id="downloadHitsDB" class="form-horizontal" action="{% url 'Recommender:download_hits_db'%}" method="post">
+                            {% csrf_token %}
+                            <label class="col-xs-12 control-label text-align-left">Descargar Hits Database</label>
+                            <p class="col-xs-12 control-label text-align-left">
+                                Descargar la base de datos actual de Hits, la que se utiliza para recomendar
+                                Youth Hit Songs. Utilizando esta opción se descarga toda la base de
+                                datos en CSV. Para cada canción tenemos estas columnas: artist, title,
+                                year, spotify_id, popularity, acousticness, danceability, energy,
+                                instrumentalness, mode, tempo y valence.
+                            </p>
+                            <p class="col-xs-12 control-label text-align-right">
+                                <button class="btn btn-primary btn-sm" type="submit">DESCARGAR</button>
+                            </p>
+                            <p class="col-xs-12 control-label text-align-right"></p>
+                        </form>
+
+                        {% block content %}
+                        <form id="addHitsDB" class="form-horizontal" method="post" action="{% url 'Recommender:add_hits_to_db'%}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <label class="col-xs-12 control-label text-align-left">Añadir a Hits Database</label>
+                            <p class="col-xs-12 control-label text-align-left">
+                                Añadir canciones a la base de datos actual de Hits (Youth Hits Songs)
+                                Al hacer clic en 'Añadir' se ha de seleccionar un archivo en CSV
+                                con el formato especificado en la opción siguiente (Descargar Modelo Hits Database).
+                                Utilizando esta opción se añadirán las canciones a la base de datos de Hits actual.
+                            </p>
+                            <p class="col-xs-12 control-label text-align-right">
+                                <input type="file" name="addHitsFile">
+                                <button class="btn btn-primary btn-sm" type="submit">AÑADIR</button>
+                            </p>
+                            <p class="col-xs-12 control-label text-align-right"></p>
+                        </form>
+                        {% if uploaded_file_url %}
+                            <p>File uploaded at:</p>
+                        {% endif %}
+                        {% endblock %}
+
+                        <form id="downloadModelHitsDB" class="form-horizontal" action="{% url 'Recommender:download_model_hits_db'%}" method="post">
+                            {% csrf_token %}
+                            <label class="col-xs-12 control-label text-align-left">Descargar Modelo Hits Database</label>
+                            <p class="col-xs-12 control-label text-align-left">
+                                Descargar en CSV el modelo o plantilla para poder subir canciones nuevas a la base
+                                de datos. Utilizando esta opción se obtiene un CSV con una única fila que contiene
+                                las columnas de referencia: artist, title, year, spotify_id, popularity, acousticness,
+                                danceability, energy, instrumentalness, mode, tempo y valence.
+                            </p>
+                            <p class="col-xs-12 control-label text-align-right">
+                                <button class="btn btn-primary btn-sm" type="submit">DESCARGAR MODELO</button>
+                            </p>
+                            <p class="col-xs-12 control-label text-align-right"></p>
+                        </form>
+
+                        <form id="removeHitsDB" class="form-horizontal" action="{% url 'Recommender:remove_hits_db'%}" method="post">
+                            {% csrf_token %}
+                            <label class="col-xs-12 control-label text-align-left">Borrar Hits Database</label>
+                            <p class="col-xs-12 control-label text-align-left">
+                                Borrar la base de datos de actual de Hits (Youth Hits Songs).
+                                ¡CUIDADO! Utilizando esta opción se borra TODA LA BASE DE DATOS DE HITS.
+                            </p>
+                            <p class="col-xs-12 control-label text-align-right">
+                                <button class="btn btn-primary btn-sm" type="submit">BORRAR</button>
+                            </p>
+                            <p class="col-xs-12 control-label text-align-right"></p>
+                        </form>
+
+                    </fieldset>
+            </div>
+        </div>
+    </div>
+
+{% include 'Recommender/elements/footer.html' %}

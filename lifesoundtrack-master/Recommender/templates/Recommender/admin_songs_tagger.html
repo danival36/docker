@@ -1,0 +1,89 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118272516-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-118272516-1');
+</script>
+
+{% include 'Recommender/elements/header.html' %}
+{% load staticfiles %}
+
+    <div class="container">
+        <div class="row">
+            <div class="well bs-component col-xs-6 col-xs-offset-3 margin-20-top">
+                <fieldset>
+                    <legend class="col-xs-12 control-label text-align-center">Añadir Género e Idioma</legend>
+                        <form id="addTagsForm" class="form-horizontal" action="{% url 'Recommender:admin_songs_add_tags'%}" method="post">
+                            {% csrf_token %}
+                            <div class="col-xs-12">
+                                <input class="form-control" id="trackId" name="trackId" value="{{track_id}}" type="hidden">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-12 control-label text-align-center">Canción: "{{ title }}" de {{ artist }}</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-12 text-align-center">
+                                    <iframe src="https://open.spotify.com/embed/track/{{spotify_id}}" width="300" height="380"
+                                    frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                                </div>
+                            </div>
+                            {% if genre == "None" %}
+                                <div class="form-group">
+                                    <label class="col-xs-12 control-label text-align-center">Géneros sugeridos en Spotify:</label>
+                                    {% for spotify_genre in spotify_genres %}
+                                        <p class="col-xs-12 control-label text-align-center">{{ spotify_genre }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            <div class="form-group">
+                                <label class="col-xs-12 control-label text-align-left">Género</label>
+                                <div class="col-xs-12">
+                                    {% if genre == "None" %}
+                                        <select class="form-control" id="inputGenre" name="inputGenre" required>
+                                            <option value=''>Elige uno de la lista</option>
+                                            {% for bsv_genre in bsv_genres %}
+                                                <option value="{{ possible_genre }}">{{ bsv_genre }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% else %}
+                                        <p class="col-xs-12 control-label text-align-left">{{ genre }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-12 control-label text-align-left">Idioma</label>
+                                <div class="col-xs-12">
+                                    {% if language == "None" %}
+                                        <select class="form-control" id="inputLanguage" name="inputLanguage" required>
+                                            <option value=''>Elige uno de la lista</option>
+                                            {% for bsv_language in bsv_languages %}
+                                                <option value="{{ possible_genre }}">{{ bsv_language }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    {% else %}
+                                        <p class="col-xs-12 control-label text-align-left">{{ language }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <p class="col-xs-12 control-label text-align-center">
+                                <button class="btn btn-primary btn-sm" type="submit">AÑADIR</button>
+                            </p>
+                        </form>
+                        <form id="nextTrack" class="form-horizontal" action="{% url 'Recommender:admin_songs_tagger'%}" method="post">
+                            {% csrf_token %}
+                            <p class="col-xs-12 control-label text-align-center">
+                                <button class="btn btn-primary btn-sm" type="submit">SALTAR Y MOSTRAR SIGUIENTE</button>
+                            </p>
+                        </form>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+{% include 'Recommender/elements/footer.html' %}

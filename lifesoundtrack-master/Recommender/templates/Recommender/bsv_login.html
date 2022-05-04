@@ -1,0 +1,69 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118272516-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-118272516-1');
+</script>
+
+{% include 'Recommender/elements/header.html' %}
+{% load i18n %}
+
+<div class="container">
+        <div class="row">
+            <div class="well bs-component col-xs-6 col-xs-offset-3 margin-20-top">
+                <form id="formDataEntry" class="form-horizontal" action="{% url 'Recommender:user_login'%}" method="post">
+                {% csrf_token %}
+                    <fieldset>
+                        <legend class="col-xs-12 control-label text-align-center">{% trans 'login' %}</legend>
+                        <div class="form-group">
+                            <label class="col-xs-12 control-label text-align-left">{% trans 'email' %}:</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" id="inputUsername" name="inputUsername" type="text">
+                            </div>
+                            <label class="col-xs-12 control-label text-align-left">{% trans 'password' %}:</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" id="inputPassword" name="inputPassword" type="password">
+                                <div class="col-xs-2 hide-show"><span>Mostrar</span></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <p class="col-xs-12 control-label text-align-center">
+                        <button class="btn btn-primary btn-sm" type="submit" id="id_button">{% trans 'send' %}</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+</div>
+
+<div class="metanav">
+    <a href="{% url 'Recommender:forgot_password' %}">{% trans 'forgot_password' %}</a>
+</div>
+
+<script>
+$(function(){
+  $('.hide-show').show();
+  $('.hide-show span').addClass('show')
+
+  $('.hide-show span').click(function(){
+    if( $(this).hasClass('show') ) {
+      $(this).text('Ocultar');
+      $('input[name="inputPassword"]').attr('type','text');
+      $(this).removeClass('show');
+    } else {
+       $(this).text('Mostrar');
+       $('input[name="inputPassword"]').attr('type','password');
+       $(this).addClass('show');
+    }
+  });
+
+    $('form button[type="submit"]').on('click', function(){
+        $('.hide-show span').text('Mostrar').addClass('show');
+        $('.hide-show').parent().find('input[name="inputPassword"]').attr('type','password');
+    });
+});
+</script>
+
+{% include 'Recommender/elements/footer.html' %}

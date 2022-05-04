@@ -1,0 +1,78 @@
+/* ------------------------------ */
+/*| Author: Arnau Torrent Freixa |*/
+/*|   Universitat Pompeu Fabra   |*/
+/*|          TFG - 2015          |*/
+/* ------------------------------ */
+
+
+/* ------ EXAMPLE ------ */
+/* --------------------- */
+
+
+/* ------ COMMON CLASSES ------ */
+.text-align-left{
+    text-align: left !important;
+}
+
+.text-align-right{
+    text-align: right !important
+}
+
+.text-align-center{
+    text-align: center !important;
+}
+.margin-20-top{
+    margin-top: 20px;
+}
+.margin-20-bottom{
+    margin-bottom: 20px;
+}
+.margin-20-left{
+    margin-left: 20px;
+}
+.margin-20-right{
+    margin-right: 20px;
+}
+.no-margin{
+    margin: 0px;
+}
+.no-margin-top{
+    margin-top: 0px;
+}
+.no-margin-bottom{
+    margin-bottom: 0px;
+}
+.no-margin-left{
+    margin-left: 0px;
+}
+.no-margin-right{
+    margin-right: 0px;
+}
+.padding-20-top{
+    padding-top: 20px;
+}
+.padding-20-bottom{
+    padding-bottom: 20px;
+}
+.padding-20-left{
+    padding-left: 20px;
+}
+.padding-20-right{
+    padding-right: 20px;
+}
+.no-padding{
+    padding: 0px;
+}
+/* --------------------- */
+
+
+/* ------ PROGRESS BAR ------ */
+.progress-bar-format{
+    margin: 10px 0px 0px 0px;
+    height: 20px;
+    width: 100%;
+}
+/* --------------------- */
+
+.metanav        { text-align: right; font-size: 0.8em; color: green; padding: 0.3em;
+                  margin-bottom: 1em; background: white; }

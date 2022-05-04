@@ -1,0 +1,80 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118272516-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-118272516-1');
+</script>
+
+{% include 'Recommender/elements/header.html' %}
+
+<form id="userDataDownload" class="form-horizontal" action="{% url 'Recommender:admin_data_download'%}" method="post"> {% csrf_token %}
+    <div class="container">
+        <div class="row">
+            <div class="well bs-component col-xs-6 col-xs-offset-3 margin-20-top">
+                <legend class="col-xs-12 control-label text-align-center">Download Data</legend>
+                <p class="col-xs-12 control-label text-align-left">
+                    En primer lugar, selecciona las opciones que deseas descargar.
+                </p>
+                <p class="col-xs-12 control-label text-align-left"></p>
+                <p class="col-xs-12 control-label text-align-left">
+                    1. Lista de los perfiles seleccionados con sus datos introducidos en el cuestionario
+                    y playlist de canciones sugeridas con su feedback. Se descarga un archivo
+                    en formato CSV.
+                </p>
+                <p class="col-xs-12 control-label text-align-right">
+                    <label>
+                        <input name="getDataList" type="checkbox" value="true"> Descargar
+                    </label>
+                </p>
+                <p class="col-xs-12 control-label text-align-left"></p>
+                <p class="col-xs-12 control-label text-align-left">
+                    2. Archivos CSV de análisis de datos de los perfiles seleccionados. Se descargan
+                    39 archivos en formato CSV.
+                </p>
+                <p class="col-xs-12 control-label text-align-right">
+                    <label>
+                        <input name="getDataAnalysis" type="checkbox" value="true"> Descargar
+                    </label>
+                </p>
+                <p class="col-xs-12 control-label text-align-left"></p>
+                <p class="col-xs-12 control-label text-align-left">
+                    A continuación se muestra la lista actual de perfiles registrados.
+                    Por favor, selecciona los perfiles que quieres incluir en los archivos csv a descargar.
+                    Si quieres incluir todos los perfiles marca la opción 'Seleccionar todos'.
+                </p>
+                <p class="col-xs-12 control-label text-align-right">
+                    <label>
+                        <input name="selectAll" type="checkbox" value="true"> Seleccionar todos
+                    </label>
+                </p>
+                <p class="col-xs-12 control-label text-align-left"></p>
+                {% for profile in profiles %}
+                    <div class="col-xs-12 control-label text-align-left">Name: {{ profile.name }}</div>
+                    <div class="col-xs-8">Birth Year: {{ profile.birth_year }}</div>
+                    <div class="col-xs-8">Birth Place: {{ profile.birth_place }}</div>
+                    <div class="col-xs-8">User: {{ profile.username }}</div>
+                    <div class="col-xs-8">
+                        <a href="{% url 'Recommender:admin_user_download_playlist_urls'%}?user={{ profile.user_id }}&id={{ profile.id }}">
+                            DESCARGAR PLAYLIST URLS
+                        </a>
+                    </div>
+                    <p class="col-xs-12 control-label text-align-left">
+                        <label>
+                            <input name="getProfileID_{{ profile.id }}" type="checkbox"
+                                   value="{{ profile.id }}"> Añadir
+                        </label>
+                    </p>
+                    <p class="col-xs-12 control-label text-align-left"></p>
+                {% endfor %}
+                <p class="col-xs-12 control-label text-align-center">
+                    <input type="submit" class="btn btn-primary btn-sm" value="DESCARGAR">
+                </p>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% include 'Recommender/elements/footer.html' %}

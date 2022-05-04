@@ -1,0 +1,258 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118272516-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-118272516-1');
+</script>
+
+{% include 'Recommender/elements/header.html' %}
+{% load i18n %}
+
+<div class="container">
+    <div class="row">
+        <div class="well bs-component col-xs-6 col-xs-offset-3 margin-20-top">
+            <fieldset>
+                <legend class="col-xs-12 control-label text-align-center">
+                    {% trans 'playlist_title' %} {{ profile.name }}
+                </legend>
+                <p align="justify">
+                    {% trans 'playlist_help_1' %}
+                </p>
+                <p align="justify">
+                    {% trans 'playlist_help_2' %}
+                    <b>
+                        <a href="{{playlist_url}}" target="_blank">
+                            {% trans 'playlist_help_3' %}
+                        </a>
+                    </b>
+                    {% trans 'playlist_help_4' %}
+                </p>
+                <p align="justify">
+                    {% trans 'playlist_help_5' %}
+                </p>
+                <p align="justify">
+                    {% trans 'playlist_help_6' %}
+                    <b>
+                        <a href="/login" target="_blank">
+                             Banda Sonora Vital
+                        </a>
+                    </b>
+                    {% trans 'playlist_help_7' %}
+                    <b>
+                         {{ user_email }}
+                    </b>
+                    {% trans 'playlist_help_8' %}
+                </p>
+                <p align="justify">
+                    {% trans 'thanks' %}
+                </p>
+
+                <br>
+                <p align="right">
+                    {% trans 'go_to_profile_txt' %}
+                </p>
+                <p align="right">
+                    <a href="{% url 'Recommender:profile'%}?user={{ user_id }}&id={{ profile.id }}">
+                        <input type="submit" class="btn btn-primary btn-sm" value="{% trans 'go_to_profile' %}">
+                    </a>
+                </p>
+                <br>
+                <p align="right">
+                    {% trans 'go_to_profile_menu_txt' %}
+                </p>
+                <p align="right">
+                    <a href="{% url 'Recommender:profile_manager_menu'%}?user={{ user_id }}">
+                        <input type="submit" class="btn btn-primary btn-sm" value="{% trans 'go_to_profile_menu' %}">
+                    </a>
+                </p>
+
+            </fieldset>
+        </div>
+    </div>
+</div>
+
+<body>
+        <div id="results_list" class="margin-20-top text-align-center">
+        {% for song in playlist %}
+            <fieldset>
+            <div class="container">
+                <div class="row">
+                    <div class="well bs-component col-xs-6 col-xs-offset-3 margin-20-top">
+                        <label class="col-xs-12 control-label text-align-center">
+                            {{forloop.counter}}.  "{{ song.Title }}"  ({{ song.Artist }})
+                        </label>
+                        <br>
+                        {% if song.Youtube != "" %}
+                            <iframe style="width:75%" height="300" src="{{song.Youtube}}"
+                                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        {% else %}
+                            <iframe src="https://open.spotify.com/embed/track/{{song.ID}}" width="300" height="380"
+                                    frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        {% endif %}
+                        <br><br>
+                        {% if not song.FeedbackDone %}
+                        <section id="formTrack{{forloop.counter}}">
+                        <div class="col-xs-12 row">
+                            <p class="col-xs-9 control-label text-align-left">
+                                {% trans 'feedback_familiar' %}
+                            </p>
+                            <div class="radio">
+                                <label>
+                                    <input name="familiarity{{ forloop.counter }}" type="radio" value="Yes">
+                                    {% trans 'yes' %}
+                                </label>
+                                <label>
+                                    <input name="familiarity{{ forloop.counter }}" type="radio" value="No">
+                                    {% trans 'no' %}
+                                </label>
+                            </div>
+                            <br>
+                            <p class="col-xs-9 control-label text-align-left">
+                                {% trans 'feedback_like' %}
+                            </p>
+                            <div class="radio">
+                                <label>
+                                    <input name="like{{ forloop.counter }}" type="radio" value="Yes">
+                                    {% trans 'yes' %}
+                                </label>
+                                <label>
+                                    <input name="like{{ forloop.counter }}" type="radio" value="No">
+                                    {% trans 'no' %}
+                                </label>
+                            </div>
+                            <br>
+                            <p class="col-xs-9 control-label text-align-left">
+                                {% trans 'feedback_listen_again' %}
+                            </p>
+                            <div class="radio">
+                                <label>
+                                    <input name="listen{{ forloop.counter }}" type="radio" value="Yes">
+                                    {% trans 'yes' %}
+                                </label>
+                                <label>
+                                    <input name="listen{{ forloop.counter }}" type="radio" value="No">
+                                    {% trans 'no' %}
+                                </label>
+                            </div>
+                            <br>
+                            <p class="col-xs-9 control-label text-align-left">
+                                {% trans 'feedback_memories' %}
+                            </p>
+                            <div class="radio">
+                                <label>
+                                    <input name="memories{{ forloop.counter }}" type="radio" value="Yes">
+                                    {% trans 'yes' %}
+                                </label>
+                                <label>
+                                    <input name="memories{{ forloop.counter }}" type="radio" value="No">
+                                    {% trans 'no' %}
+                                </label>
+                            </div>
+                            <p class="col-xs-12 control-label text-align-left">
+                                {% trans 'feedback_text' %}
+                                <div class="col-xs-12 no-padding">
+                                    <div class="col-xs-12">
+                                        <input class="form-control" name="text{{ forloop.counter }}" type="text">
+                                    </div>
+                                </div>
+                            </p>
+                            <div class="col-xs-12 no-padding">
+                                <div class="col-xs-12">
+                                    <input class="form-control hidden" name="trackname{{ forloop.counter }}" type="text" value="{{ song.Title }} // {{ song.Artist }}">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 no-padding">
+                                <br>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="GetFeedback({{ forloop.counter }})">
+                                    {% trans 'send_verb' %}
+                                </button>
+                            </div>
+                        </div>
+                        </section>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            </fieldset>
+        {% endfor %}
+        </div>
+
+        <div class="container">
+            <div class="row">
+                {% if playlist_feedback_text is None or playlist_feedback_text == "" %}
+                    <div class="well bs-component col-xs-6 col-xs-offset-3 margin-20-top" id="formPlaylistFeedback">
+                        <label class="col-xs-12 control-label text-align-center">
+                            {% trans 'playlist_feedback_text' %}
+                        </label>
+                        <input class="form-control" name="playlist_feedback_text" type="text">
+                        <div class="col-xs-12 no-padding text-align-center">
+                            <br>
+                            <button type="button" class="btn btn-primary btn-sm" onclick="GetFeedbackText()">
+                                {% trans 'send_verb' %}
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="well bs-component col-xs-6 col-xs-offset-3 margin-20-top hidden" id="formPlaylistFeedbackDone">
+                        <label class="col-xs-12 control-label text-align-center">
+                            {% trans 'playlist_feedback_text' %}
+                        </label>
+                        <p class="col-xs-12 control-label text-align-center">
+                            {% trans 'playlist_feedback_text_sent' %}
+                        </p>
+                    </div>
+                {% else %}
+                    <div class="well bs-component col-xs-6 col-xs-offset-3 margin-20-top">
+                        <label class="col-xs-12 control-label text-align-center">
+                            {% trans 'playlist_feedback_text' %}
+                        </label>
+                        <p class="col-xs-12 control-label text-align-center">
+                            {% trans 'playlist_feedback_text_sent' %}
+                        </p>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+
+    <div id="playlist_url" class="text-align-center">
+        <a href="{{playlist_url}}" target="_blank">
+            {% trans 'spotify_link' %}
+        </a>
+    </div>
+    <br>
+
+    <hr />
+
+    <script>
+    function GetFeedback(i) {
+    $.get('/save_track_feedback/?id=' + {{ profile.id }}, { familiarity: $('input[name="familiarity'+i.toString()+'"]:checked').val(),
+                                    like: $('input[name="like'+i.toString()+'"]:checked').val(),
+                                    memories: $('input[name="memories'+i.toString()+'"]:checked').val(),
+                                    listen: $('input[name="listen'+i.toString()+'"]:checked').val(),
+                                    text: $('input[name="text'+i.toString()+'"]').val(),
+                                    n_track: i.toString(),
+                                    track_name: $('input[name="trackname'+i.toString()+'"]').val(),
+                                    },
+        function(data){
+            if(data == "True"){
+                $("#formTrack"+i.toString()).addClass('hidden');
+            }
+    });
+    }
+    function GetFeedbackText() {
+    $.get('/save_feedback_text/?id=' + {{ profile.id }}, { playlist_feedback_text: $('input[name="playlist_feedback_text"]').val() },
+        function(data){
+            if(data == "True"){
+                $("#formPlaylistFeedback").addClass('hidden');
+                $("#formPlaylistFeedbackDone").removeClass('hidden');
+            }
+    });
+    }
+    </script>
+
+{% include 'Recommender/elements/footer.html' %}
+</body>

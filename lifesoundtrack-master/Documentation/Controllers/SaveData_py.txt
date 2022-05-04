@@ -1,0 +1,31 @@
+CLASSES
+
+
+*** User ***
+
+- The attributes of the object user are defined and divided in three groups: personal data, data related to music and memories related to music.
+
+- The functions for the object user are also defined to save all the data:
+
+· Get_personal_data: It saves the personal information of the user like the name, the birth place, the places where the user lived and the day and hour that the form was submitted.
+
+· Get_relationship_with_music: It saves the information of the user that is related with the music like the places the user worked, if there was music there, whether the user plays some instrument, likes to sing and dance and its favorite genres, songs and artists.
+
+· Get_memories_and_music: It saves information about memories related with user’s music like what type of music the user likes (melodic or rhythm, upbeat or calm music, cheerful or melancholic), instruments preferred, languages preferred, childhood memories relate to music, music danced when the user was young, memories related to radio listening, memories related to tv watching, wedding songs, good memories songs, bad memories songs and contact e-mail.
+
+
+
+FUNCTIONS
+
+
+*** fill_db ***
+
+- It saves all the information from the form into the users’ database.
+
+*** SaveData ***
+
+- This function is called when the user submit the form to create its life soundtrack with this data.
+		
+- It creates a user by the User class and it uses the three functions of this class to fill all the attributes with the corresponding information.
+After that it checks that the user name or the favorite songs and artist aren’t empty fields.
+If one of these two parts is empty it renders the “oops” html. If all these fields are filled, it calls the function “Fill_db” and renders the “save_data” html including the user name and a waiting time.
