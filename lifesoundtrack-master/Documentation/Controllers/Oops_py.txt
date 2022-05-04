@@ -1,6 +1,0 @@
-FUNCTIONS
-
-
-*** Oops ***
-
-- This function only renders the “oops” html.

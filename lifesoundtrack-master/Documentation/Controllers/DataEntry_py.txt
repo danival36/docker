@@ -1,9 +1,0 @@
-FUNCTIONS
-
-
-*** DataEntry ***
-
-- This function is called when the “CREA LA TEVA” link is clicked from the “home” page.
-
-- It generates the following information: list of genres, places where the user worked, instruments played, list of languages and an array of numbers to count the places where the user lived.
-All the information is included to render the “data_entry” html where a form to obtain user’s information is generated.

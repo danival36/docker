@@ -1,9 +1,0 @@
-FUNCTIONS
-
-
-*** Feedback ***
-
-- When the playlist is shown, a form is also created under it so the user can give some feedback about the results. This function is called when the form is submitted.
-
-- It retrieves the information from the form where the user can specify for each song proposed if it sounded familiar, if the user liked it, if the user would listen it again and the user can also add some general comments.
-After that it loads the user and its playlist, to relate and save the information retrieved for each song and the general comments. Then, it renders “feedback_thanks” html.
