@@ -1,0 +1,180 @@
+version: '3.7'
+ 
+services:
+ # db:
+#    image: mysql:5.7
+#    deploy:
+#      placement:
+#       constraints: [node.role == worker]
+#      replicas: 1
+#      resources:
+#        limits:
+#         cpus: "0.5"
+#         memory: 512M
+#      restart_policy:
+#       condition: on-failure
+#    volumes:
+#     - pape-mysql:/var/lib/mysql
+#      
+#    environment:
+#      
+#      MYSQL_ROOT_PASSWORD: 'thevolumepaper'
+#      MYSQL_DATABASE: 'pape'
+#      MYSQL_USERNAME: 'papeuser'
+#      MYSQL_PASSWORD: 'pape.2020-21'
+#      MYSQL_INNODB_LARGE_PREFIX: 'ON'
+#      MYSQL_INNODB_FILE_FORMAT: 'Barracuda'
+#    
+#    networks:
+#     - pape-network
+  
+  http:
+    depends_on:
+      - db
+    #image: registry.sb.upf.edu/info/grep-pape2021-wordpress-enable-ssl:latest
+    #image: registry.sb.upf.edu/info/grep-pape2021-wordpress-5.9.2-enable-ssl:2
+    image: registry.sb.upf.edu/info/grep-pape2021-apache-php-74:latest
+    
+    deploy:
+      placement:
+        constraints: [node.role == worker]
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.5"
+          memory: 512M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - 8324:80
+    volumes:
+      - pape2021-html:/var/www/html
+    restart: always
+    networks:
+      - pape-network
+     
+#  pape-phpmyadmin:
+#     depends_on:
+#      - db
+# 
+#     image: phpmyadmin/phpmyadmin
+#     deploy:
+#      placement:
+#       constraints: [node.role == worker]
+#      resources:
+#        limits:
+#          cpus: "0.9"
+#          memory: 250M
+#      restart_policy:
+#        condition: on-failure
+#        delay: 5s
+#        max_attempts: 10
+#     environment:
+#        PMA_ARBITRARY: 1
+#        PMA_HOST: db
+#        MYSQL_USER: pape
+#        MYSQL_PASSWORD: papeuser
+#        MYSQL_ROOT_PASSWORD: pape.2020-21
+#     volumes:
+#      - pape-html-phpmyadmin:/var/www/html
+#     ports:
+#        - 8325:80
+#     networks:
+#       - pape-network    
+  
+ # sftp:
+ #     image: registry.sb.upf.edu/dtcl/sftp:ldap
+ #     environment:
+ #       - SFTP_DIR=/data
+ #       - LDAP_GROUP_ALLOWED=srv_grep_pape2021
+ #     deploy:
+#       placement:
+#          constraints: [node.role == worker]
+#        resources:
+#          limits:
+#            cpus: "0.4"
+#            memory: 128M
+#        restart_policy:
+#          condition: on-failure
+#          delay: 5s
+#          max_attempts: 10
+#      volumes:
+#        - pape-nfs-all:/data
+#      ports:
+#        - 8326:22
+#  
+ 
+#  db-cron-backup:    
+#      depends_on:
+#      - db
+#      image: fradelg/mysql-cron-backup     
+#      deploy:
+ #       placement:
+ #        constraints: [node.role == worker]
+#        resources:
+#          limits:
+#            cpus: "0.9"
+#            memory: 256M
+#        restart_policy:
+#         condition: on-failure
+#         delay: 5s
+#         max_attempts: 10
+#      environment:
+#         MYSQL_HOST: db
+#         MYSQL_USER: root
+#         MYSQL_PASS: thevolumepaper
+#         MAX_BACKUPS: 15
+#         INIT_BACKUP: 0
+#        # Every day at 03:00
+#         CRON_TIME: 15 18 * * 1-5
+#      volumes:
+#        - pape-backup2:/backup
+#      networks:
+#        - pape-network
+ 
+ 
+volumes: 
+  pape2021-html:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: nfsvers=4,addr=10.80.110.228,rw
+      #device: ":GREP/GREP-pape2021/html"
+      device: ":GREP/GREP-pape2021/html_static_simply"
+   
+      
+#  pape-mysql:
+#    driver: local
+#    driver_opts:
+#      type: nfs
+#      o: nfsvers=4,addr=10.80.110.228,rw
+#      device: ":GREP/GREP-pape2021/mysql"
+    
+  
+   
+#  pape-html-phpmyadmin:
+#    driver: local
+#    driver_opts:
+#      type: nfs
+#      o: nfsvers=4,addr=10.80.110.228,rw
+#      device: ":GREP/GREP-pape2021/phpmyadmin"
+    
+#  pape-nfs-all:
+#    driver: local
+#    driver_opts:
+#      type: nfs
+#      o: nfsvers=4,addr=10.80.110.228,rw
+#      device: ":GREP/GREP-pape2021/"
+  
+      
+#  pape-backup2:
+#    driver: local
+#    driver_opts:
+#      type: nfs
+#      o: nfsvers=4,addr=10.80.110.228,rw
+#      device: ":GREP/GREP-pape2021/backup-mysql"
+
+        
+      
+networks:
+  pape-network:

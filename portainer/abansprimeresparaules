@@ -1,0 +1,142 @@
+version: '3'
+ 
+services:
+  http:
+    depends_on:
+      - db
+    image: registry.sb.upf.edu/info/grep-abansprimeresparaules-apache-php-72:latest
+
+    #image: php:5.5.26-apache
+    
+    deploy:
+      placement:
+           constraints: [node.role == worker]
+
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1G
+      restart_policy:
+        condition: on-failure
+    ports:
+      - 8105:80
+    volumes:
+      - abansprimeresparaules-html:/var/www/html
+    restart: always
+    networks:
+      - abansprimeresparaules-network
+ 
+#  db:
+#     image: mysql:5.7
+#     deploy:
+#      placement:
+#        constraints: [node.role == worker]
+#      replicas: 1
+#      resources:
+#        limits:
+#          cpus: "1.0"
+#          memory: 1G
+#      restart_policy:
+#        condition: on-failure
+#     volumes:
+#      - abansprimeresparaules-mysql:/var/lib/mysql
+#     environment:
+#      MYSQL_ROOT_PASSWORD: enlosmontes
+#      MYSQL_DATABASE: app
+#      MYSQL_USER: abansMYSQLuser
+#      MYSQL_PASSWORD: abans1117NEW@@
+#     networks:
+#      - abansprimeresparaules-network
+#      
+#      
+#  db-cron-backup:    
+#      depends_on:
+#      - db
+#      image: fradelg/mysql-cron-backup     
+#      deploy:
+#        placement:
+#         constraints: [node.role == worker]
+#        resources:
+#          limits:
+#            cpus: "0.9"
+#            memory: 256M
+#        restart_policy:
+#         condition: on-failure
+#         delay: 5s
+#         max_attempts: 10
+#      environment:
+#         MYSQL_HOST: db
+#         MYSQL_USER: root
+#         MYSQL_PASS: enlosmontes
+#         MAX_BACKUPS: 15
+#         INIT_BACKUP: 0
+        # Every day at 03:00
+#         CRON_TIME: 34 18 * * 1-5
+#      volumes:
+#        - abansprimeresparaules-backup2:/backup
+#      networks:
+#        - abansprimeresparaules-network
+
+#  phpmyadmin:
+#     depends_on:
+#      - db
+#     image: phpmyadmin/phpmyadmin
+#     deploy:
+#      placement:
+#        constraints: [node.role == worker]
+#      resources:
+#        limits:
+ #         cpus: "0.9"
+#          memory: 250M
+#      restart_policy:
+#        condition: on-failure
+#        delay: 5s
+#        max_attempts: 10
+ #    environment:
+#        PMA_ARBITRARY: 1
+#        PMA_HOST: db
+ #       MYSQL_ROOT_PASSWORD: enlosmontes
+#        MYSQL_USER: abansMYSQLuser
+#        MYSQL_PASSWORD: abans1117NEW@@
+#     ports:
+#      - 8434:80
+ #    volumes:
+#      - abansprimeresparaules-phpmyadmin:/var/www/html
+#     networks:
+#      - abansprimeresparaules-network
+
+volumes: 
+  abansprimeresparaules-html:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: nfsvers=4,addr=10.80.110.228,rw
+      #device: ":GREP/GREP-abansprimeresparaules/html"
+      device: ":GREP/GREP-abansprimeresparaules/html_static"
+      #device: ":GREP/GREP-abansprimeresparaules/html_static_httracker"
+      
+#  abansprimeresparaules-mysql:
+#    driver: local
+#    driver_opts:
+#      type: nfs
+#      o: nfsvers=4,addr=10.80.110.228,rw
+#      device: ":GREP/GREP-abansprimeresparaules/mysql"
+#    
+#  abansprimeresparaules-backup2:
+#    driver: local
+#    driver_opts:
+#      type: nfs
+#      o: nfsvers=4,addr=10.80.110.228,rw
+#      device: ":GREP/GREP-abansprimeresparaules/backup-mysql"
+   
+ 
+#  abansprimeresparaules-phpmyadmin:
+#    driver: local
+#    driver_opts:
+#      type: nfs
+#      o: nfsvers=4,addr=10.80.110.228,rw
+#      device: ":GREP/GREP-abansprimeresparaules/phpmyadmin"
+#
+networks:
+  abansprimeresparaules-network:
