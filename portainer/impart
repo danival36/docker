@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  http_static:
+    image: httpd:2.4.39
+    deploy:
+      replicas: 1
+      placement:
+         constraints: [node.role == worker]
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 32M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 10
+    volumes:
+      - impart-nfs:/usr/local/apache2/htdocs
+    ports:
+      - "8094:80"
+    networks:
+      - impart-network
+volumes: 
+  impart-nfs:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: nfsvers=4,addr=10.80.110.228,rw
+      device: ":/GTI/GTI-impart/html/"
+
+networks:
+  impart-network:
+
