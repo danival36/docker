@@ -1,0 +1,30 @@
+version: "3.7"
+services:
+  http_static:
+    image: "httpd:2.4.39"
+    deploy:
+      placement:
+        constraints: [node.role == worker]
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 32M
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - imp-html:/usr/local/apache2/htdocs
+    ports:
+      - "8070:80"
+    networks:
+      - imp-network
+volumes: 
+  imp-html:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: nfsvers=4,addr=10.80.110.228,rw
+      device: ":/GTI/GTI-imp/html/"
+      
+networks:
+  imp-network:
