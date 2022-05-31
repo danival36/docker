@@ -1,0 +1,35 @@
+version: "3.7"
+services:
+  http_static:
+    image: httpd:2.4.39
+    deploy:
+      replicas: 1
+      placement:
+          constraints: [node.role == worker]
+
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 64M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 10
+    volumes:
+      - transalfabetismos-nfs:/usr/local/apache2/htdocs
+    ports:
+      - "8120:80"
+    networks:
+      - transalfabetismos-network
+volumes: 
+  transalfabetismos-nfs:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: nfsvers=4,addr=10.80.110.228,rw
+      device: ":UNICA/UNICA-transalfabetismos/html"
+   
+       
+networks:
+  transalfabetismos-network:
+
