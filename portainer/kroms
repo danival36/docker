@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  http_static:
+    image: httpd:2.4.39
+    deploy:
+      placement:
+        constraints: [node.role == worker]
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 512M
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - http_static_nfs:/usr/local/apache2/htdocs
+    ports:
+      - "8110:80"
+    networks:
+      - kroms-network
+volumes: 
+  http_static_nfs:
+     driver: local
+     driver_opts:
+      type: nfs
+      o: nfsvers=4,addr=10.80.110.228,rw
+      device: ":/WNRG/WNRG-kroms/html"
+networks:
+  kroms-network:
