@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  html:
+    image: "httpd:latest"
+    deploy:
+      placement:
+          constraints: [node.role == worker]
+
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 32M
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - html_nfs:/usr/local/apache2/htdocs
+    ports:
+      - "8102:80"
+    networks:
+      - m4all-network
+volumes: 
+  html_nfs:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: nfsvers=4,addr=10.80.110.228,rw
+      device: ":CMTECH/CMTECH-m4all/html"
+        
+networks:
+  m4all-network:
